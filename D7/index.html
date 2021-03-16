@@ -22,9 +22,11 @@
       */
 
       const changePcontent = function () {
-        //
-      };
-
+        let allLinks = document.querySelectorAll("a")
+                for (let i = 0; i < allLinks.length; i++) {
+                    allLinks[i].href = "https://www.google.com"
+                }
+            }
       /* EXERCISE 4
       Write a function for changing the destination of every link to https://www.google.com
       */
