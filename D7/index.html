@@ -110,7 +110,7 @@
     */
 
     const firstUlDisappear = function () {
-      //
+        document.getElementById("firstList").remove()
     };
 
     /* EXERCISE 8
@@ -126,8 +126,11 @@
     */
 
     const makeItClickable = function () {
-      //
-    };
+        let allUL = document.getElementsByTagName("ul")
+                for (let i = 0; i < allUL.length; i++) {
+                    allUL[i].style.backgroundColor = "green"
+                }
+            }
 
     /* EXERCISE 10
     Change the footer text with something else when the user clicks on it.
