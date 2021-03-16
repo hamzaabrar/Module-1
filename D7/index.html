@@ -102,7 +102,10 @@
     */
 
     const addParagraph = function (content) {
-      //
+        let node = document.createElement("p")
+                let text = document.createTextNode(content)
+                node.appendChild(text)
+                document.getElementById("paragraphs").appendChild(node)
     };
 
     /* EXERCISE 7
