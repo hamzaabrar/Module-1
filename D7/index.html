@@ -131,8 +131,11 @@
     */
 
     const makeItClickable = function () {
-        
-    }
+        let head = document.querySelector("header h1")
+                head.style.color = "#" + Math.floor(Math.random()*16777215).toString(16)
+            }
+            document.querySelector("header h1").onclick = makeItClickable
+
     /* EXERCISE 10
     Change the footer text with something else when the user clicks on it.
     */
