@@ -118,28 +118,28 @@
     */
 
     const paintItGreen = function () {
-      //
-    };
-
-    /* EXERCISE 9
-    Make the heading of the page change color every time the user clicks on it.
-    */
-
-    const makeItClickable = function () {
         let allUL = document.getElementsByTagName("ul")
                 for (let i = 0; i < allUL.length; i++) {
                     allUL[i].style.backgroundColor = "green"
                 }
             }
+    /* EXERCISE 9
+    Make the heading of the page change color every time the user clicks on it.
+    */
 
+    const makeItClickable = function () {
+        
+    }
     /* EXERCISE 10
     Change the footer text with something else when the user clicks on it.
     */
 
     const changeFooterText = function () {
-      //
-    };
-
+        let foot = document.querySelector("footer p")
+                foot.innerText = "The footer changed O_O"
+            }
+            document.querySelector("footer p").onclick = changeFooterText
+        
     /* EXERCISE 11
     Attach an event listener to the input field in the page for console logging its value just after any keystroke.
     */
@@ -152,7 +152,7 @@
     */
 
     window.onload = function () {
-      //
+        //alert("WELCOME YOU MADE IT TO THE PAGE :D")
     };
 
     /* EXERCISE 13
