@@ -20,20 +20,20 @@
       /* EXERCISE 3
       Write a function for changing the text of only the p which are children of a div.
       */
-
+      const changePcontent = function () {
+        document.querySelectorAll("div p")[0].innerText = input;
+        
+      };
+     
+      /* EXERCISE 4
+      Write a function for changing the destination of every link to https://www.google.com
+      */
       const changePcontent = function () {
         let allLinks = document.querySelectorAll("a")
                 for (let i = 0; i < allLinks.length; i++) {
                     allLinks[i].href = "https://www.google.com"
                 }
             }
-      /* EXERCISE 4
-      Write a function for changing the destination of every link to https://www.google.com
-      */
-
-      const changeUrls = function () {
-        //
-      };
 
       /* EXERCISE 5
        Write a function for adding a new item in the second list.
