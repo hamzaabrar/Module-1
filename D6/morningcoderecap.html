@@ -1,0 +1,92 @@
+// the for loop is useful for doing some code for a set amount of times
+
+
+
+const myArr=['stefano', 'leonardo', 'dan', 'marcio'] // has length 4
+
+
+
+for(let x=0; x<myArr.length; x++) {
+
+    console.log('THE NAME NOW IS: ', myArr[3])
+
+}
+
+
+
+console.log('this is going to show AFTER the loop')
+
+
+
+
+
+let myObj = {
+
+    // an object is all about PAIRS of keys: values
+
+    name: 'Danial', // each pair is called a "property"
+
+    age: 20,
+
+    sex: 'male'
+
+}
+
+
+
+console.log(myObj)
+
+console.log(myObj.name) // dot notation
+
+console.log(myObj['name']) // square bracket notation
+
+myObj.name = 'Stefano'
+
+console.log(myObj.name)
+
+myObj.school = 'Strive'
+
+console.log(myObj)
+
+
+
+
+
+let calculateShippingCost = function(cartTotal){
+
+    if(typeof cartTotal === 'undefined') {
+
+        return 'error'
+
+    }
+
+    // shipping is free for orders > 40 euros
+
+    if(cartTotal > 40) {
+
+        return cartTotal
+
+    } else {
+
+        return cartTotal + 10
+
+    }
+
+}
+
+
+
+let user = {
+
+    name: 'Stefano',
+
+    total: 50
+
+}
+
+
+
+console.log('the grand total now is: ', calculateShippingCost(user.total))
+
+console.log('the grand total now is: ', calculateShippingCost())
+
