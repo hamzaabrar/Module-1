@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+
+
+    <title>Accessing Elements in the DOM</title>
+
+
+
+    <style>
+
+      html {
+
+        font-family: sans-serif;
+
+        color: #333;
+
+      }
+
+      body {
+
+        max-width: 350px;
+
+        margin: 0 auto;
+
+        padding: 0 15px;
+
+      }
+
+      #inputs {
+
+        display: flex;
+
+        flex-direction: column;
+
+        align-items: flex-end;
+
+      }
+
+      #button {
+
+        text-align: center;
+
+      }
+
+      div,
+
+      article {
+
+        padding: 10px;
+
+        margin: 5px;
+
+      }
+
+    </style>
+
+  </head>
+
+
+
+  <body>
+
+    <div id="inputs">
+
+      <div>
+
+        <label for="name">Name</label>
+
+        <input id="name" type="text" placeholder="put your name here" />
+
+      </div>
+
+      <div>
+
+        <label for="surname">Surname</label>
+
+        <input id="surname" type="text" />
+
+      </div>
+
+      <div>
+
+        <label for="email">Email</label>
+
+        <input id="email" type="email" />
+
+      </div>
+
+    </div>
+
+    <!-- <input type="button" value="SAVE USER" onclick="buttonFunction()" /> -->
+
+    <button>SAVE DATA</button>
+
+    <div id="success-message" style="display: none">
+
+      <h3>DATA HAS BEEN SAVED!</h3>
+
+    </div>
+
+    <script>
+
+      const buttonFunction = function (event) {
+
+        console.log(event);
+
+        grabValues();
+
+        console.log("done, X coordinate is", event.screenX);
+
+        alert(event.target.innerText);
+
+      };
+
+
+
+      const grabValues = function () {
+
+        let nameInput = document.getElementById("name");
+
+        let name = nameInput.value;
+
+
+
+        // let name = document.getElementById("name").value;
+
+
+
+        let surnameInput = document.getElementById("surname");
+
+        let surname = surnameInput.value;
+
+        let emailInput = document.getElementById("email");
+
+        let email = emailInput.value;
+
+
+
+        // console.log(name);
+
+        // console.log(surname);
+
+        // console.log(email);
+
+
+
+        let user = {
+
+          name: name,
+
+          surname: surname,
+
+          email: email,
+
+        };
+
+
+
+        console.log(user);
+
+
+
+        showSuccessMessage();
+
+
+
+        nameInput.value = "";
+
+        surnameInput.value = "";
+
+        emailInput.value = "";
+
+      };
+
+
+
+      const showSuccessMessage = function () {
+
+        let successDiv = document.getElementById("success-message");
+
+        successDiv.style.display = "block";
+
+
+
+        setTimeout(function () {
+
+          successDiv.style.display = "none";
+
+        }, 5000);
+
+      };
+
+
+
+      window.onload = function () {
+
+        let saveButton = document.querySelector("button");
+
+        saveButton.onclick = buttonFunction;
+
+        // saveButton.addEventListener("click", buttonFunction);
+
+      };
+
+    </script>
+
+  </body>
+
+</html>
+
