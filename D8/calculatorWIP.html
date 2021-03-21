@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./assets/styles.css" />
+    <title>M1-D8-Calculator</title>
+  </head>
+  <body>
+    <div id="calculator">
+      <table>
+        <tr>
+          <td colspan="4">
+            <input type="text" id="result" value="0" disable />
+          </td>
+        </tr>
+        <tr>
+          <td><input type="button" class="numericButton" value="7" /></td>
+          <td><input type="button" class="numericButton" value="8" /></td>
+          <td><input type="button" class="numericButton" value="9" /></td>
+          <td><input type="button" class="functionButton" value="*" /></td>
+        </tr>
+        <tr>
+          <td><input type="button" class="numericButton" value="4" /></td>
+          <td><input type="button" class="numericButton" value="5" /></td>
+          <td><input type="button" class="numericButton" value="6" /></td>
+          <td><input type="button" class="functionButton" value="-" /></td>
+        </tr>
+        <tr>
+          <td><input type="button" class="numericButton" value="1" /></td>
+          <td><input type="button" class="numericButton" value="2" /></td>
+          <td><input type="button" class="numericButton" value="3" /></td>
+          <td><input type="button" class="functionButton" value="+" /></td>
+        </tr>
+        <tr>
+          <td><input type="button" class="functionButton" value="C" /></td>
+          <td><input type="button" class="numericButton" value="0" /></td>
+          <td><input type="button" class="functionButton" value="=" /></td>
+          <td><input type="button" class="functionButton" value="/" /></td>
+        </tr>
+      </table>
+    </div>
+    <script>
+      window.addEventListener("DOMContentLoaded", function () {
+        const result = document.getElementById("result");
+        let previousResult = 0;
+        let operation = "";
+        let finished = false;
+
+        const sum = (x, y) => {
+          return x + y;
+        };
+        const diff = (x, y) => {
+          return x - y;
+        };
+        const mul = (x, y) => {
+          return x * y;
+        };
+        const div = (x, y) => {
+          return x / y;
+        };
+
+        const numericButtonPressed = function (event) {
+          const numberPressed = event.target.value;
+
+          if (result.value === "0" || finished) {
+            result.value = numberPressed;
+            finished = false;
+          } else {
+            result.value += numberPressed;
+          }
+        };
+
+        const functionButtonPressed = function (event) {
+          const keyPressed = event.target.value;
+          const currentInputValue = parseInt(result.value);
+          switch (keyPressed) {
+            case "=":
+              finished = true;
+              switch (operation) {
+                case "+":
+                  result.value = sum(previousResult, currentInputValue);
+                  break;
+                case "-":
+                  result.value = diff(previousResult, currentInputValue);
+                  break;
+                case "*":
+                  result.value = mul(previousResult, currentInputValue);
+                  break;
+                case "/":
+                  result.value = div(previousResult, currentInputValue);
+                  break;
+                default:
+                  console.log("Default case");
+              }
+              break;
+            case "C":
+              result.value = "0";
+              previousResult = 0;
+              operation = "";
+              console.log("previous result", previousResult);
+              console.log("operation symbol", operation);
+              break;
+            default:
+              previousResult = parseInt(result.value);
+
+              console.log("previous result", previousResult);
+              operation = keyPressed;
+              console.log("operation symbol", operation);
+
+              console.log(result.value);
+              result.value = "0";
+              console.log(result.value);
+          }
+        };
+
+        const numericButtons = document.getElementsByClassName("numericButton");
+        const functionButtons = document.getElementsByClassName(
+          "functionButton"
+        );
+
+        for (let button of numericButtons) {
+          button.addEventListener("click", numericButtonPressed);
+        }
+
+        for (let button of functionButtons) {
+          button.addEventListener("click", functionButtonPressed);
+        }
+      });
+    </script>
+  </body>
+</html>
